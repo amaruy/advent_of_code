@@ -1,2 +1,5 @@
 2023/data/
 2024/data/
+setup_day.py
+.env
+.gitignore
