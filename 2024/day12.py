@@ -1,4 +1,4 @@
-from collections import defaultdict, deque
+from collections import defaultdict
 
 matrix = {(x, y): c for x, row in enumerate(open('2024/data/input12.txt').read().splitlines()) for y, c in enumerate(row)}
 directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
