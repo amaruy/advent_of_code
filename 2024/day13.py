@@ -10,7 +10,7 @@ def solve_machine(Ax, Ay, Bx, By, Px, Py):
     A_count = (Px*By - Bx*Py) / det
     B_count = (Ax*Py - Px*Ay) / det
 
-    if A_count < 0 or B_count < 0 or not (A_count.is_integer() and B_count.is_integer()): return 0
+    if any([A_count < 0, B_count < 0, A_count % 1, B_count % 1]): return 0
     
     return int(3*A_count + B_count)
 
