@@ -1,12 +1,15 @@
 import re
+import numpy as np
 
-games = open('2024/data/input13.txt', 'r').read().split('\n\n')
+games = re.findall(r'(\d+).*?(\d+).*?(\d+).*?(\d+).*?(\d+).*?(\d+)', open('2024/data/input13.txt').read(), re.S)
 OFFSET = 10000000000000
 
-def solve_machine(Ax, Ay, Bx, By, Px, Py):
+def f(game):
+    Ax, Ay, Bx, By, Px, Py = map(int, game)
     # Cramer's rule, Both must be integers and nonnegative (did'nt need nonnegative for my input).
     if (det:= Ax*By - Bx*Ay) == 0: return 0
 
+    Px, Py = Px + OFFSET, Py + OFFSET
     A_count = (Px*By - Bx*Py) / det
     B_count = (Ax*Py - Px*Ay) / det
 
@@ -14,15 +17,16 @@ def solve_machine(Ax, Ay, Bx, By, Px, Py):
     
     return int(3*A_count + B_count)
 
-def solve(offset=0, total=0):
-    for game in games:
-        (Ax, Ay), (Bx, By), (Px, Py) = [tuple(map(int, re.findall(r'\d+', line))) for line in game.splitlines()]
-        Px, Py = Px + offset, Py + offset
-        total += solve_machine(Ax, Ay, Bx, By, Px, Py)
+def solve(row):
+    ax,ay,bx,by,px,py = map(int, row)
+    M = np.array([[ax, bx], [ay, by]])
+    P = np.array([px, py]) + 10000000000000
+    R = np.round(np.linalg.solve(M, P))
+    return R@(3,1) if (P==R@M.T).all() else 0
 
-    print(total)
 
-solve()
-solve(OFFSET)
+print(sum(map(solve, games)))
+
+
 
 
