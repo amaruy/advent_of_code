@@ -1,5 +1,3 @@
-text = ''''''
-
 text = open('2024/data/input10.txt', 'r').read()
 
 matrix = [list(map(int, list(row)))  for row in text.splitlines()]

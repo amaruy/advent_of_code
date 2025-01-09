@@ -1,5 +1,3 @@
-text = """"""
-
 text = open('2024/data/input5.txt', 'r').read()
 
 rules, orders = text.split('\n\n')

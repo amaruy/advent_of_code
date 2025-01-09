@@ -3,10 +3,6 @@ lookup table instead of matrix simplifies code significantly!
 only search the path for loops.
 """
 
-
-text = """"""
-from tqdm import tqdm
-
 text = open('2024/data/input6.txt', 'r').read()
 
 matrix = {(x, y): c for x, row in enumerate(text.splitlines()) for y, c in enumerate(row)}
@@ -30,6 +26,6 @@ def simulate(grid):
 
 steps = {(x, y) for x, y, _, _, in simulate(matrix)[1]}
 print(len(steps))
-print(sum(simulate(matrix | {(x, y): '#'})[0] for x,y in tqdm(steps)))
+print(sum(simulate(matrix | {(x, y): '#'})[0] for x,y in steps))
 
             

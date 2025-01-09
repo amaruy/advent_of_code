@@ -1,4 +1,3 @@
-text = '''2333133121414131402'''
 from collections import deque
 
 text = open('2024/data/input9.txt', 'r').read()

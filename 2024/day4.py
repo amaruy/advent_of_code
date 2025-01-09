@@ -1,14 +1,3 @@
-text = r"""MMMSXXMASM
-MSAMXMSMSA
-AMXSXMAAMM
-MSAMASMSMX
-XMASAMXAMM
-XXAMMXXAMA
-SMSMSASXSS
-SAXAMASAAA
-MAMMMXMMMM
-MXMXAXMASX"""
-
 text = open('2024/data/input4.txt', 'r').read()
 
 text = text.splitlines()

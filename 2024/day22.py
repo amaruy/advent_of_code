@@ -1,10 +1,4 @@
-text="""1
-2
-3
-2024
-"""
-
-#text = open('2024/data/input22.txt').read()
+text = open('2024/data/input22.txt').read()
 num = 123
 
 mix = lambda num1, num2: num1 ^ num2
