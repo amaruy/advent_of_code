@@ -1,9 +1,3 @@
-text = '''179A
-029A
-980A
-456A
-379A
-'''
 text = open('2024/data/input21.txt').read()
 
 """
